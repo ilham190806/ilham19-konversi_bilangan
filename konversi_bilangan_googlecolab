@@ -1,0 +1,118 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "mount_file_id": "1ZF9eB6Q9HQnXT2NHnnN-Iasj15XK-5lc",
+      "authorship_tag": "ABX9TyMLxTfOgJPBhb8YANBxaM0K",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ilham190806/ilham19-konversi_bilangan/blob/main/konversi_bilangan_googlecolab\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "u9-qK2qDauo_"
+      },
+      "outputs": [],
+      "source": [
+        "def konversi_bilangan():\n",
+        "    \"\"\"\n",
+        "    Program untuk konversi bilangan antar basis (Desimal, Biner, Oktal, Heksadesimal).\n",
+        "    \"\"\"\n",
+        "    print(\"=== KONVERSI BILANGAN ===\")\n",
+        "    print(\"1. Desimal ke Biner, Oktal, Heksadesimal\")\n",
+        "    print(\"2. Biner ke Desimal, Oktal, Heksadesimal\")\n",
+        "    print(\"3. Oktal ke Desimal, Biner, Heksadesimal\")\n",
+        "    print(\"4. Heksadesimal ke Desimal, Biner, Oktal\")\n",
+        "\n",
+        "    try:\n",
+        "        # Meminta pilihan jenis konversi dari pengguna\n",
+        "        pilihan = input(\"Pilih jenis konversi (1-4): \")\n",
+        "\n",
+        "        # --- Konversi Desimal ke Lainnya ---\n",
+        "        if pilihan == \"1\":\n",
+        "            print(\"\\n# Masukkan bilangan desimal:\")\n",
+        "            desimal = int(input(\"Desimal: \"))\n",
+        "\n",
+        "            # Konversi dan tampilkan\n",
+        "            print(f\"Desimal: {desimal}\")\n",
+        "            print(f\"Biner: {bin(desimal)[2:]}\") # [2:] untuk menghilangkan '0b'\n",
+        "            print(f\"Oktal: {oct(desimal)[2:]}\") # [2:] untuk menghilangkan '0o'\n",
+        "            print(f\"Heksadesimal: {hex(desimal)[2:].upper()}\") # [2:] untuk menghilangkan '0x' dan menjadikannya huruf besar\n",
+        "\n",
+        "        # --- Konversi Biner ke Lainnya ---\n",
+        "        elif pilihan == \"2\":\n",
+        "            print(\"\\n# Masukkan bilangan biner:\")\n",
+        "            biner = input(\"Biner: \")\n",
+        "\n",
+        "            # Konversi Biner ke Desimal (basis 2)\n",
+        "            desimal = int(biner, 2)\n",
+        "\n",
+        "            # Tampilkan hasil konversi\n",
+        "            print(f\"Desimal: {desimal}\")\n",
+        "            print(f\"Oktal: {oct(desimal)[2:]}\")\n",
+        "            print(f\"Heksadesimal: {hex(desimal)[2:].upper()}\")\n",
+        "\n",
+        "        # --- Konversi Oktal ke Lainnya ---\n",
+        "        elif pilihan == \"3\":\n",
+        "            print(\"\\n# Masukkan bilangan oktal:\")\n",
+        "            oktal = input(\"Oktal: \")\n",
+        "\n",
+        "            # Konversi Oktal ke Desimal (basis 8)\n",
+        "            desimal = int(oktal, 8)\n",
+        "\n",
+        "            # Tampilkan hasil konversi\n",
+        "            print(f\"Desimal: {desimal}\")\n",
+        "            print(f\"Biner: {bin(desimal)[2:]}\")\n",
+        "            print(f\"Heksadesimal: {hex(desimal)[2:].upper()}\")\n",
+        "\n",
+        "        # --- Konversi Heksadesimal ke Lainnya ---\n",
+        "        elif pilihan == \"4\":\n",
+        "            print(\"\\n# Masukkan bilangan heksadesimal:\")\n",
+        "            heks = input(\"Heksadesimal: \")\n",
+        "\n",
+        "            # Konversi Heksadesimal ke Desimal (basis 16)\n",
+        "            # Menggunakan .upper() untuk memastikan huruf 'a' sampai 'f' diproses dengan benar\n",
+        "            desimal = int(heks.upper(), 16)\n",
+        "\n",
+        "            # Tampilkan hasil konversi\n",
+        "            print(f\"Desimal: {desimal}\")\n",
+        "            print(f\"Biner: {bin(desimal)[2:]}\")\n",
+        "            print(f\"Oktal: {oct(desimal)[2:]}\")\n",
+        "\n",
+        "        else:\n",
+        "            print(\"\\n[!] Pilihan tidak valid. Silakan coba lagi.\")\n",
+        "\n",
+        "    except ValueError:\n",
+        "        # Menangani kesalahan jika input bukan bilangan yang valid\n",
+        "        print(\"\\n[!] Input tidak valid. Pastikan Anda memasukkan format bilangan yang benar untuk setiap basis.\")\n",
+        "    except Exception as e:\n",
+        "        # Menangani kesalahan umum lainnya\n",
+        "        print(f\"\\n[!] Terjadi kesalahan: {e}\")\n",
+        "\n",
+        "# Memanggil fungsi untuk menjalankan program\n",
+        "konversi_bilangan()"
+      ]
+    }
+  ]
+}
